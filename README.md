@@ -20,6 +20,9 @@ Before running the project, make sure you have the following:
    - Pub/Sub topics and subscriptions set up.
    - A BigQuery dataset and table.
 4. **Google Cloud SDK** (if deploying to Google Cloud).
+5. **Poetry** installed on your machine:
+   ```bash
+   curl -sSL https://install.python-poetry.org | python3 -
 
 ## Setup
 
@@ -38,14 +41,18 @@ Before running the project, make sure you have the following:
 3. **Install dependencies**:
 
     ```bash
-    pip install -r requirements.txt
+   pip install --upgrade pip
+   ```
+    ```bash
+   poetry install
+   ```
    
 ## Running - 
 
 ## 1. **Running the Project Locally**
 #### You can run the project directly from Python if you have set up the necessary Google Cloud environment variables on your local machine.
 ```bash 
-    python main.py
+    poetry run python main.py
 ```
 Ensure the following environment variables are set either in your system or in a .env file (with tools like dotenv):
 GCP_PROJECT_ID: Your GCP project ID.
