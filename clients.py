@@ -1,4 +1,4 @@
-from google.cloud import pubsub_v1, bigquery
+from google.cloud import pubsub_v1, bigquery, storage
 import logging
 
 def initialize_pubsub_clients():
@@ -11,3 +11,8 @@ def initialize_bigquery_client():
     bigquery_client = bigquery.Client()
     logging.info("BigQuery client initialized successfully.")
     return bigquery_client
+
+def initialize_gcs_client():
+    gcs_client = storage.Client()
+    logging.info("GCS client initialized successfully.")
+    return gcs_client

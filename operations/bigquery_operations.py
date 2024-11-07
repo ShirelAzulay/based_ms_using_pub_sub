@@ -1,4 +1,28 @@
 import config
+from google.cloud import bigquery
+import logging
+
+def insert_row_into_bigquery(bigquery_client, dataset_name, table_name, message_text):
+    """
+    Inserts a single row into a BigQuery table.
+
+    :param bigquery_client: BigQuery client.
+    :param dataset_name: The dataset name in BigQuery.
+    :param table_name: The table name in BigQuery.
+    :param message_text: The message text to insert.
+    """
+    table_id = f"{dataset_name}.{table_name}"
+    rows_to_insert = [{"message": message_text}]  # Define the structure of the row to insert
+
+    try:
+        errors = bigquery_client.insert_rows_json(table_id, rows_to_insert)
+        if errors:
+            logging.error(f"Errors while inserting row into BigQuery: {errors}")
+        else:
+            logging.info("New row has been added to BigQuery")
+    except Exception as e:
+        logging.error(f"Failed to insert row into BigQuery: {e}")
+
 
 def get_all_satellite_data():
     """

@@ -170,3 +170,4 @@ cython_debug/
 /shelf/
 /workspace.xml
 /.idea/workspace.xml
+./poetry.lock
