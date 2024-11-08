@@ -1,5 +1,4 @@
 import config
-from google.cloud import bigquery
 import logging
 
 def insert_row_into_bigquery(bigquery_client, dataset_name, table_name, message_text):
